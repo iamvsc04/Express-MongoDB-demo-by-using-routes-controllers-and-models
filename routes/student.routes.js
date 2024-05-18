@@ -1,0 +1,13 @@
+const express=require("express");
+const app=express();
+const route=express.Router();
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+const {getStudent,getStudentById,postStudent,putStudent,patchStudent,deleteStudent}=require("../controller/student.controller");
+route.get("/",getStudent);
+route.get("/:id",getStudentById);
+route.post("/",postStudent);
+route.patch("/:id",patchStudent);
+route.put("/:id",putStudent);
+route.delete("/:id",deleteStudent);
+module.exports=route;
